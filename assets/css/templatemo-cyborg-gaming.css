@@ -856,6 +856,7 @@ Most Popular Style
   font-size: 14px;
 }
 
+
 .most-popular .item ul li:first-child i {
   color: yellow;
 }
@@ -906,7 +907,17 @@ Gaming Library Style
   margin-top: -30px;
 }
 
-.gaming-library .item ul li {
+.gaming-library .item ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.gaming-library .item ul li:last-child{
+  text-align:right;
+}
+
+/*.gaming-library .item ul li {
   display: inline-block;
   width: 17%;
 }
@@ -916,9 +927,9 @@ Gaming Library Style
 }
 
 .gaming-library .item ul li:last-child {
-  width: 15%;
+  width: 75%;
   text-align: right;
-}
+}*/
 
 .gaming-library .item ul li h4 {
   font-size: 15px;
