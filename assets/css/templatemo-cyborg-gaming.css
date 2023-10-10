@@ -334,7 +334,7 @@ Header Style
 --------------------------------------------- 
 */
 
-.background-header {
+/*.background-header {
   background-color: #1f2122 !important;
   height: 70px!important;
   position: fixed!important;
@@ -347,7 +347,7 @@ Header Style
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
   display:block;
-}
+}*/
 
 .header-area {
   background-color: transparent;
