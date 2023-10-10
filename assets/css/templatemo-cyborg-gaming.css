@@ -1663,6 +1663,16 @@ body {
   .main-banner h4 {
     font-size: 35px;
   }
+
+.gaming-library{
+  text-align:center;
+}
+
+  .gaming-library .item ul {
+    flex-direction: column;
+    align-items: center;
+}
+
   .gaming-library .item ul li,
   .gaming-library .item ul li:first-child,
   .gaming-library .item ul li:last-child {
@@ -1712,9 +1722,9 @@ body {
   .heading-section h4 {
     font-size: 20px;
   }
-  .gaming-library .item ul li {
+  /*.gaming-library .item ul li {
     width: 48% !important;
-  }
+  }*/
   .gaming-library .item ul li:last-child {
     text-align: left;
   }
