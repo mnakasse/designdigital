@@ -368,7 +368,6 @@ Header Style
   min-height: 80px;
   background: transparent;
   display: flex;
-  justify-content: space-between;
   padding: 15px 0px;
   border-radius: 50px;
 }
