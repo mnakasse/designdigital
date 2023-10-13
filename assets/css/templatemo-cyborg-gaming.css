@@ -682,9 +682,9 @@ Header Style
   .header-area .logo {
     margin-left: 0px;
   }
-  .header-area .menu-trigger {
+  /*.header-area .menu-trigger {
     display: block !important;
-  }
+  }*/
   .header-area .main-nav {
     overflow: hidden;
   }
