@@ -787,7 +787,7 @@ Banner Style
 }
 
 .main-banner h4 {
-  font-size: 45px;
+  font-size: 25px;
   text-transform: uppercase;
   margin-bottom: 25px;
 }
@@ -808,6 +808,11 @@ Most Popular Style
   padding: 30px;
   background-color: #1f2122;
   border-radius: 23px;
+}
+
+.most-popular iframe {
+  width: 100%;
+  height: auto;
 }
 
 .most-popular .item {
