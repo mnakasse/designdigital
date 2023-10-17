@@ -1661,9 +1661,18 @@ body {
   }
   .main-banner {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100px;
+    background: #1c1c37;
   }
   .main-banner h4 {
-    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
 .gaming-library{
