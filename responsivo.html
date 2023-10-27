@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de responsividade</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/38675efccc.js" crossorigin="anonymous"></script>
+    <script>
+    // Função para atualizar o texto do título com base na largura da janela
+    function atualizarTitulo() {
+        var titulo = document.getElementById('title-1');
+        var larguraJanela = window.innerWidth;
+
+        if (larguraJanela >= 1400) {
+            titulo.textContent = 'Responsivo, container 1320px';
+        } else if (larguraJanela >= 1200) {
+            titulo.textContent = 'Responsivo, container 1140px';
+        } else if (larguraJanela >= 768) {
+            titulo.textContent = 'Responsivo, container 720px';
+        } else if (larguraJanela >= 576) {
+            titulo.textContent = 'Responsivo, container 540px';
+        } else if (larguraJanela >= 360) {
+            titulo.textContent = 'Responsivo, container 100%';
+        }
+    }
+
+    // Chamar a função inicialmente para definir o título com base na largura atual quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', atualizarTitulo);
+
+    // Adicionar um ouvinte de redimensionamento da janela para atualizar o título conforme a largura da janela muda
+    window.addEventListener('resize', atualizarTitulo);
+
+    </script>
+    <script>
+    // Função para atualizar a largura em tempo real na div
+    function atualizarLargura() {
+        var larguraPagina = window.innerWidth;
+        var larguraDiv = document.querySelector('.largura');
+        larguraDiv.textContent = 'Largura da Página: ' + larguraPagina + 'px';
+    }
+
+    // Chamar a função para mostrar a largura da página quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', atualizarLargura);
+
+    // Chamar a função para atualizar a largura em tempo real quando a janela é redimensionada
+    window.addEventListener('resize', atualizarLargura);
+    </script>
+<script>
+    // Função para aumentar o tamanho do texto dos parágrafos
+    function aumentarTamanho() {
+      var paragrafos = document.querySelectorAll('p');
+      for (var i = 0; i < paragrafos.length; i++) {
+        var tamanhoAtual = window.getComputedStyle(paragrafos[i]).fontSize;
+        var novoTamanho = parseInt(tamanhoAtual) + 2;
+        paragrafos[i].style.fontSize = novoTamanho + 'px';
+      }
+      atualizarTamanhoTexto();
+    }
+
+    // Função para diminuir o tamanho do texto dos parágrafos
+    function diminuirTamanho() {
+      var paragrafos = document.querySelectorAll('p');
+      for (var i = 0; i < paragrafos.length; i++) {
+        var tamanhoAtual = window.getComputedStyle(paragrafos[i]).fontSize;
+        var novoTamanho = parseInt(tamanhoAtual) - 2;
+        paragrafos[i].style.fontSize = novoTamanho + 'px';
+      }
+      atualizarTamanhoTexto();
+    }
+
+    // Função para atualizar a exibição do tamanho do texto
+    function atualizarTamanhoTexto() {
+      var tamanhoDiv = document.querySelector('.coluna');
+      var tamanhoTexto = "";
+      var paragrafos = document.querySelectorAll('p');
+
+      for (var i = 0; i < paragrafos.length; i++) {
+        tamanhoTexto += "<span>" + "Fonte: "  + window.getComputedStyle(paragrafos[i]).fontSize + "</span>";
+      }
+
+      tamanhoDiv.innerHTML = tamanhoTexto;
+    }
+
+    // Chamar a função para exibir o tamanho do texto quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', atualizarTamanhoTexto);
+
+  </script>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background:black;
+            color:#fff;
+        }
+
+        h1,h3,h4,p {
+            text-align: left;
+        }
+
+        h2{text-align:center;}
+
+        .container-geral{
+            background-color: rgb(43, 43, 43);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .coluna span{
+            border:none !important;
+        }
+
+        .coluna span:not(:first-child) {
+         display: none;
+        }
+        .container-geral span{
+            border-bottom:inset 1px #fff;
+            width:100%;
+        }
+
+        .font-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f1641f;
+            border: solid 1px;
+            border-radius: 30px;
+            width: 162px;
+            margin-left: calc(50% - 81px);
+            margin-top: 25px;
+        }
+
+        .font-selector p{
+            margin:0;
+            padding:0;
+        }
+
+        .font-selector i {
+             font-size: 24px;
+        }
+
+        .font-selector button {
+            width: 38px;
+            height: 38px;
+            background: none;
+            border: none;
+            color: #f1641f;
+            border-radius: 50%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .largura {
+             text-wrap: nowrap;
+             padding: 0 5px;
+        }
+
+        .row {
+            margin: 35px 0;
+        }
+
+        nav {
+            color: #fff;
+            border: inset 1px #f1641f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1vw 1vh;
+            margin: 4px 0;
+        }
+
+        nav p:first-child {
+            font-weight: bold;
+        }
+        .info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container container-geral">
+    <h2 id="title-1">Layout responsivo</h2>
+    
+
+
+    <div class="info"><span></span><div class="largura"></div><span></span></div>
+    
+    <div class="font-selector">
+        <button class="col-auto" onclick="diminuirTamanho()"><i class="fa-solid fa-circle-minus"></i></button>
+        <div class="coluna col-auto">Tamanho do Texto:</div>
+        <button class="col-auto" onclick="aumentarTamanho()"><i class="fa-solid fa-circle-plus"></i></button>
+    </div>
+
+        <div class="row">
+            <nav class="col-lg-12 col-md-12 col-sm-12"><p>1 coluna</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm-6"><p>2 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-6"><p>2 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm-4"><p>3 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-4"><p>3 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-4"><p>3 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm-3 col-md-6 col-lg-3"><p>4 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-3 col-md-6 col-lg-3"><p>4 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-3 col-md-6 col-lg-3"><p>4 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-3 col-md-6 col-lg-3"><p>4 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm col-md-6 col-lg"><p>5 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm col-md-6 col-lg"><p>5 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm col-md-6 col-lg"><p>5 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm col-md-6 col-lg"><p>5 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm col-md-6 col-lg"><p>5 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-2 col-md-6 col-lg-2"><p>6 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+
+        <div class="row">
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+            <nav class="col-sm-1 col-md-6 col-lg-1"><p>12 colunas</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim lorem vel lectus pellentesque, ac iaculis justo dignissim. Ut ullamcorper tortor non bibendum porttitor</p></nav>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
